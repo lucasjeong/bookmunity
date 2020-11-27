@@ -28,4 +28,4 @@ def search_book(query):
 
 if __name__ == "__main__":
 
-    print(search_book('라플라스의 마녀'))
+    print(search_book('리버풀'))
