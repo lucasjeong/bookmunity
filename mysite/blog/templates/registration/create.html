@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>회원가입</title>
+  </head>
+  <body>
+    {% block content %}
+    <div>
+      <h1>회원가입</h1>
+      <form method="POST" action=".">{% csrf_token %}
+          {% if form.errors %}
+          <p>err</p>
+          {% endif %}
+            <fieldset>
+              <div>
+                {{ form.username.label_tag }} {{ form.username }}
+              </div>
+              <div>
+                {{ form.password1.label_tag }}  {{ form.password1 }}
+              </div>
+              <div>
+                {{ form.password2.label_tag }}  {{ form.password2 }}
+              </div>
+              <div>
+                {{ form.email.label_tag }}  {{ form.email }}
+              </div>
+            </fieldset>
+            <div>
+              <input type="submit" value="등록">
+            </div>
+      </form>
+    </div>
+    {% endblock %}
+  </body>
+</html>
