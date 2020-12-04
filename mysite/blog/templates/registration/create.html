@@ -8,7 +8,8 @@
     {% block content %}
     <div>
       <h1>회원가입</h1>
-      <form method="POST" action=".">{% csrf_token %}
+      <form method="POST" action=".">
+        {% csrf_token %}
           {% if form.errors %}
           <p>err</p>
           {% endif %}
@@ -21,9 +22,6 @@
               </div>
               <div>
                 {{ form.password2.label_tag }}  {{ form.password2 }}
-              </div>
-              <div>
-                {{ form.email.label_tag }}  {{ form.email }}
               </div>
             </fieldset>
             <div>

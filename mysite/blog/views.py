@@ -63,7 +63,7 @@ def comment_remove(request, pk):
 class UserCreateView(CreateView):
     template_name = 'registration/create.html'
     form_class = UserCreationForm
-    success_url = reverse_lazy('create_done')
+    success_url = reverse_lazy('post_list')
 
 class UserCreateDone(TemplateView):
     template_name = 'registration/create_done.html'
