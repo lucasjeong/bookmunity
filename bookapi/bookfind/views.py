@@ -31,7 +31,7 @@ def search(request):
             context = {
                 'items': items
             }
-            return render(request, 'bookfind/templates/templates.html', context = context)
+            return render(request, 'bookfind/templates.html', context = context)
 
 
 # https://whatisthenext.tistory.com/137
