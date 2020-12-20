@@ -9,5 +9,5 @@ urlpatterns = [
     url(r'^post/(?P<pk>\d+)/remove/$', views.PostDeleteView.as_view(), name = 'post_remove'),
     url(r'^post/(?P<pk>\d+)/comment/$', views.add_comment_to_post, name = 'add_comment_to_post'),
     url(r'^comment/(?P<pk>\d+)/remove/$', views.comment_remove, name = 'comment_remove'),
-
+    url(r'^search/', views.search, name = 'api_search'),
 ]

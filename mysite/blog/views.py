@@ -7,6 +7,8 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
+import json
+import urllib.request
 
 
 from django.utils.encoding import python_2_unicode_compatible
@@ -67,3 +69,31 @@ class UserCreateView(CreateView):
 
 class UserCreateDone(TemplateView):
     template_name = 'registration/create_done.html'
+
+#책 검색
+def search(request):
+    if request.method == 'GET':
+
+        client_id = 'gqNyJgMrf19GMiiUJKQH'
+        client_secret = 'MMQ26KysSJ'
+
+        find = request.GET.get('find')
+        encText = urllib.parse.quote("{}".format(find))
+        url = "https://openapi.naver.com/v1/search/book?query=" + encText
+
+        book_api_request = urllib.request.Request(url)
+        book_api_request.add_header("X-Naver-Client-Id", client_id)
+        book_api_request.add_header("X-Naver-Client-Secret", client_secret)
+        response = urllib.request.urlopen(book_api_request)
+
+        rescode = response.getcode()
+        if(rescode == 200):
+            response_body = response.read()
+            result = json.loads(response_body.decode('utf-8'))
+            items = result.get('items')
+            print(result)
+
+            context = {
+                'items': items
+            }
+            return render(request, 'bookfind/bookfind.html', context = context)

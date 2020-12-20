@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>일단 책 검색이 된다아아아</h1>
+
+      <form action="{% url 'api_search' %}" method="GET">
+          <input type="text" name="find" placeholder="검색">
+          <input type="submit" value="검색">
+      </form>
+      <div>
+      {% for item in items %}
+          <ul>
+              <div>{{ forloop.counter }}
+                <img src="{{item.image}}" alt="" width="110" height="150"><br>
+                제목 : {{ item.title|safe }} <br>
+                글쓴이 : {{ item.author }} <br>
+                출판사 : {{ item.publisher }} <br>
+                ISBN : {{ item.isbn }} <br>
+                설명 : {{ item.description|safe }}
+              </div>
+          </ul>
+      {% endfor %}
+      </div>
+  </body>
+</html>
