@@ -17,7 +17,6 @@ def search_book(query):
     request.add_header('X-Naver-Client-Secret', CLIENT_SECRET)
 
 
-
     response = urlopen(request).read().decode('utf-8')
 
     search_result = json.loads(response)
