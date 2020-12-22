@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
+{% extends "blog/base.html" %}
+{% block content %}
   <body>
     <h1>일단 책 검색이 된다아아아</h1>
 
@@ -19,11 +15,10 @@
                 제목 : {{ item.title|safe }} <br>
                 글쓴이 : {{ item.author }} <br>
                 출판사 : {{ item.publisher }} <br>
-                ISBN : {{ item.isbn }} <br>
-                설명 : {{ item.description|safe }}
+                ISBN : {{ item.isbn }}
               </div>
           </ul>
       {% endfor %}
       </div>
   </body>
-</html>
+{% endblock %}
