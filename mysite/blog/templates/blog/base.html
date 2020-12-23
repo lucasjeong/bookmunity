@@ -11,6 +11,20 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
     <link rel="stulesheet" href="{% static 'css/blog.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Russo+One&display=swap" rel="stylesheet">
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $('#search_button').click(function(){
+        var search_key = $('search_input').val();
+        $.ajax({
+          type:"GET",
+          url:"{% url 'api_search' %}",
+          data:{'search_key':search_key},
+          success:function(data){
+            $('#show').html(JSON.stringify(data));
+          }
+        })
+      })
+    </script>
 
   </head>
 
