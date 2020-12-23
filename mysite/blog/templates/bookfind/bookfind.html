@@ -1,27 +1,25 @@
 {% extends "blog/base.html" %}
 {% block content %}
+
 <body>
   <h1>검색</h1>
-    <form action = "{% url 'api_search' %}" method="GET">
-      <input type = "text" name = "find" placeholder = "검색" id = "search_input">
-      <button type = "submit" id = "search_button">검색</button>
-    </form>
-
-    <p id="show"></p>
-
-  <div>
-  {% for item in items %}
-      <ul>
-          <div>
-            {{ forloop.counter }}
-            <img src="{{item.image}}" alt="" width="110" height="150"><br>
-            제목 : {{ item.title|safe }} <br>
-            글쓴이 : {{ item.author|safe }} <br>
-            출판사 : {{ item.publisher|safe }} <br>
-            ISBN : {{ item.isbn|safe }}
-          </div>
-      </ul>
-  {% endfor %}
-  </div>
+    <input type = "search" name = "find" id = "search_input">
+    <button type = "submit" id = "search_button">검색</button>
+  <p id="show"></p>
 </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $('#search_button').click(function(){
+    var search_key = $('#search_input').val();
+    $.ajax({
+      url:"/search/?find=" + search_key,
+      data:{ 'search_key':search_key},
+      success:function(data){
+        $('#show').html(data);
+      }
+    })
+  })
+</script>
+
 {% endblock %}
