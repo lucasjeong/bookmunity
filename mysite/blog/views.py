@@ -79,7 +79,7 @@ def search(request):
 
         find = request.GET.get('find')
         encText = urllib.parse.quote("{}".format(find))
-        url = "https://openapi.naver.com/v1/search/book?query=" + encText
+        url = "https://openapi.naver.com/v1/search/book?query=" + encText + "&display=100&start=1"
 
         book_api_request = urllib.request.Request(url)
         book_api_request.add_header("X-Naver-Client-Id", client_id)
