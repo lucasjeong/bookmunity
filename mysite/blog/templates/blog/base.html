@@ -21,30 +21,6 @@
 
   <body class = "loader">
     <!--
-    <nav class = "navbar navbar-default techfont custom-navbar">
-      <div class="container">
-        <ul class="nav navbar-nav">
-          <li><a class='navbar-brand bigbrand' href="{% url 'post_list' %}">글</a></li>
-          <li><a class = 'nav navbar-right' href = "{% url 'api_search' %}">책 검색</a></li>
-        </ul>
-        <ul class= 'nav navbar-nav navbar-right'>
-          {% if user.is_authenticated %}
-          <li>
-            <a href="{% url 'post_new' %}">새 글</a>
-          </li>
-          <li>
-            <a href="{% url 'logout' %}">로그아웃</a>
-          </li>
-          <li>
-            <a>ㅎㅇ: {{ user.username }}</a>
-          </li>
-            {% else %}
-            <li><a class = 'nav navbar-right' href="{% url 'login' %}"><span class='glyphicon glyphicon-user'></span></a></li>
-            <li><a class = 'nav navbar-right' href="{% url 'create' %}">회원가입</a>
-          {% endif %}
-        </ul>
-      </div>
-    </nav>
     <div class="content container">
       <div class="row">
         <div class="col-md-8">
@@ -66,43 +42,30 @@
           </div>
         </div>
       </div>
-
-      <nav class = "navbar navbar-default techfont custom-navbar">
-        <div class="container">
-          <ul class="nav navbar-nav">
-            <li><a class='navbar-brand bigbrand' href="{% url 'post_list' %}">글</a></li>
-            <li><a class = 'nav navbar-right' href = "{% url 'api_search' %}">책 검색</a></li>
-          </ul>
-          <ul class= 'nav navbar-nav navbar-right'>
-            {% if user.is_authenticated %}
-            <li>
-              <a href="{% url 'post_new' %}">새 글</a>
-            </li>
-            <li>
-              <a href="{% url 'logout' %}">로그아웃</a>
-            </li>
-            <li>
-              <a>ㅎㅇ: {{ user.username }}</a>
-            </li>
-              {% else %}
-              <li><a class = 'nav navbar-right' href="{% url 'login' %}"><span class='glyphicon glyphicon-user'></span></a></li>
-              <li><a class = 'nav navbar-right' href="{% url 'create' %}">회원가입</a>
-            {% endif %}
-          </ul>
-        </div>
-      </nav>
       
       <div id="page" class="container">
         <div id="sidebar1">
+          {% if user.is_authenticated %}
+          <div id="box1">
+            <div id="box2">
+              <h2>📚</h2>
+              <h2>애독가 {{ user.username }}님</h2>
+            </div>
+            <a href="{% url 'logout' %}" class="button">로그아웃</a>
+            <a href="#" class="button">마이페이지</a> 
+            <a href="{% url 'post_new' %}" class="longbutton">글쓰기</a>
+            <a href="{% url 'api_search' %}" class="longbutton">책 검색</a>
+          </div>
+          {% else %}
           <div id="box1">
             <div id="box2">
               <h2>📚</h2>
               <h2>로그인이 필요한 페이지입니다.</h2>
             </div>
-            <a href="#" class="button">로그인</a>
-            <a href="#" class="button">회원가입</a> 
-            <a href="#" class="longbutton">글쓰기</a>
+            <a href="{% url 'login' %}" class="button">로그인</a>
+            <a href="{% url 'create' %}" class="button">회원가입</a> 
           </div>
+          {% endif %}
         </div>
         <div id="content">
           <!--
@@ -119,6 +82,7 @@
           <a href="#" class="llongbutton">로그인</a>
           -->
           {% block content %}
+          <a class='navbar-brand bigbrand' href="{% url 'post_list' %}">글</a>
           {% endblock %}
         </div>
         <div id="sidebar2">
