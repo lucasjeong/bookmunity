@@ -48,7 +48,7 @@
 											{% if user.is_authenticated %}
 												 <li><a href="{% url 'post_new' %}" class="smoothScroll">새 글</a></li>
 												 <li><a href="{% url 'logout' %}" class="smoothScroll">로그아웃</a></li>
-												 <li><a>애독가 {{ user.username }}님</a></li>
+												 <li><a>{{ user.username }}님</a></li>
 											{% else %}
 												 <li><a href="{% url 'login' %}" class="smoothScroll">로그인</a></li>
 												 <li><a href="{% url 'create' %}" class="smoothScroll">회원가입</a></li>
