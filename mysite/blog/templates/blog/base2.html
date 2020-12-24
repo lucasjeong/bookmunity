@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>북뮤니티</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Russo+One&display=swap" rel="stylesheet">
+
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+    <link href="{% static '/css/default.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{% static '/css/fonts.css' %}" rel="stylesheet" type="text/css" media="all" />
+  </head>
+
+  <body class = "loader">
+
+    <div id="wrapper">
+      <div id="header-wrapper" onclick="index.html">
+        <div id="header" class="container" style="background-color: green;">
+          <div id="logo">
+            <p>한 권의 책을, </p>
+            <h1><a>📚북뮤니티</a></h1>
+          </div>
+        </div>
+      </div>
+
+      <div id="page" class="container">
+        <div id="sidebar1">
+          {% if user.is_authenticated %}
+          <div id="box1">
+            <div id="box2">
+              <h2>📚</h2>
+              <h2>애독가 {{ user.username }}님</h2>
+            </div>
+            <a href="{% url 'logout' %}" class="button">로그아웃</a>
+            <a href="#" class="button">마이페이지</a>
+            <a href="{% url 'post_new' %}" class="longbutton">글쓰기</a>
+            <a href="{% url 'api_search' %}" class="longbutton">책 검색</a>
+          </div>
+          {% else %}
+          <div id="box1">
+            <div id="box2">
+              <h2>📚</h2>
+              <h2>로그인이 필요한 페이지입니다.</h2>
+            </div>
+            <a href="{% url 'login' %}" class="button">로그인</a>
+            <a href="{% url 'create' %}" class="button">회원가입</a>
+          </div>
+          {% endif %}
+        </div>
+        <div id="content">
+          <a class='navbar-brand bigbrand' href="{% url 'post_list' %}">글</a>
+        </div>
+        <div id="sidebar2">
+          <div>
+            <h2> 오늘의 추천도서</h2>
+            <ul class="style2">
+              <img src="{% static '/images/prince.jpg' %}" width="200" height="300" alt="Image error">
+              <li class="first">
+                <h3><a href="#">Le Petit Prince</a></h3>
+                <p><a href="#">생텍쥐페리 지음</a></p>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

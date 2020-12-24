@@ -9,6 +9,8 @@ from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 import json
 import urllib.request
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 
 from django.utils.encoding import python_2_unicode_compatible
@@ -71,6 +73,7 @@ class UserCreateDone(TemplateView):
     template_name = 'registration/create_done.html'
 
 #책 검색
+@csrf_exempt
 def search(request):
     if request.method == 'GET':
 
@@ -91,7 +94,6 @@ def search(request):
             response_body = response.read()
             result = json.loads(response_body.decode('utf-8'))
             items = result.get('items')
-            print(result)
 
             context = {
                 'items': items
