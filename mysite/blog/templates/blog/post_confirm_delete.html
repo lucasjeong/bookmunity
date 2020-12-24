@@ -2,7 +2,7 @@
 {% block content %}
   <form method="post">
     {% csrf_token %}
-    <p>Are you sure you want to delete {{ object }}?</p>
-    <input type="submit" class='btn btn-danger' value="Confirm">
+    <p>정말로 {{ object }}을(를) 삭제하시겠어요?</p>
+    <input type="submit" class='btn btn-danger' value="삭제">
   </form>
 {% endblock %}

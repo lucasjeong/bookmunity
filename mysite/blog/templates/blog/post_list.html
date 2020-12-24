@@ -5,7 +5,7 @@
   <div class="post">
     <h1> <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
     <div class="date">
-      <p>등록날짜: {{ post.published_date|date:"Y-m-d" }}</p>
+      <p>등록일: {{ post.published_date|date:"Y-m-d" }}</p>
     </div>
     <a href="{% url 'post_detail' pk=post.pk %}">댓글: {{ post.comments.count }}</a>
   </div>

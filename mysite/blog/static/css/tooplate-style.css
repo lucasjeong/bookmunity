@@ -3,9 +3,9 @@
 Template 2106 Soft Landing
 
 http://www.tooplate.com/view/2106-soft-landing
-	
+
 */
- 
+
   @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400');
 
   body {
@@ -17,7 +17,7 @@ http://www.tooplate.com/view/2106-soft-landing
 
 
   /*---------------------------------------
-     TYPOGRAPHY              
+     TYPOGRAPHY
   -----------------------------------------*/
 
   h1,h2,h3,h4,h5,h6 {
@@ -44,7 +44,7 @@ http://www.tooplate.com/view/2106-soft-landing
 
 
   /*---------------------------------------
-     GENERAL               
+     GENERAL
   -----------------------------------------*/
 
   html{
@@ -143,7 +143,7 @@ http://www.tooplate.com/view/2106-soft-landing
 
 
   /*---------------------------------------
-     BUTTONS               
+     BUTTONS
   -----------------------------------------*/
 
   .section-btn {
@@ -166,7 +166,7 @@ http://www.tooplate.com/view/2106-soft-landing
 
 
   /*---------------------------------------
-       PRE LOADER              
+       PRE LOADER
   -----------------------------------------*/
 
   .preloader {
@@ -216,7 +216,7 @@ http://www.tooplate.com/view/2106-soft-landing
 
 
   /*---------------------------------------
-      MENU              
+      MENU
   -----------------------------------------*/
 
   .custom-navbar {
@@ -280,7 +280,7 @@ http://www.tooplate.com/view/2106-soft-landing
   @media(min-width:768px) {
     .custom-navbar {
       border-bottom: 0;
-      background: 0 0; 
+      background: 0 0;
     }
 
     .custom-navbar.top-nav-collapse {
@@ -307,7 +307,7 @@ http://www.tooplate.com/view/2106-soft-landing
 
 
   /*---------------------------------------
-      HOME          
+      HOME
   -----------------------------------------*/
 
   #home {
@@ -346,11 +346,11 @@ http://www.tooplate.com/view/2106-soft-landing
     text-transform: uppercase;
     margin: 10px 0;
   }
-  
+
 
 
   /*---------------------------------------
-      FEATURE              
+      FEATURE
   -----------------------------------------*/
 
   #feature {
@@ -374,15 +374,15 @@ http://www.tooplate.com/view/2106-soft-landing
     margin-right: 35px;
   }
 
-  #feature .nav-tabs>li.active>a, 
-  #feature .nav-tabs>li.active>a:focus, 
+  #feature .nav-tabs>li.active>a,
+  #feature .nav-tabs>li.active>a:focus,
   #feature .nav-tabs>li.active>a:hover {
     background: transparent;
     color: #202020;
     border-bottom: 3px solid #29ca8e;
   }
 
-  #feature .nav>li>a:focus, 
+  #feature .nav>li>a:focus,
   #feature .nav>li>a:hover {
     background: transparent;
     border-bottom: 3px solid #29ca8e;
@@ -409,7 +409,7 @@ http://www.tooplate.com/view/2106-soft-landing
 
 
   /*---------------------------------------
-      ABOUT              
+      ABOUT
   -----------------------------------------*/
 
   #about .col-md-4 {
@@ -473,7 +473,7 @@ http://www.tooplate.com/view/2106-soft-landing
 
 
   /*---------------------------------------
-      TESTIMONIAL           
+      TESTIMONIAL
   -----------------------------------------*/
 
   #testimonial {
@@ -541,7 +541,7 @@ http://www.tooplate.com/view/2106-soft-landing
 
 
   /*---------------------------------------
-      PRICING             
+      PRICING
   -----------------------------------------*/
 
   #about .section-title,
@@ -600,7 +600,7 @@ http://www.tooplate.com/view/2106-soft-landing
 
 
   /*---------------------------------------
-      CONTACT             
+      CONTACT
   -----------------------------------------*/
 
   #contact-form .col-md-12,
@@ -636,11 +636,11 @@ http://www.tooplate.com/view/2106-soft-landing
     background: #29ca8e;
     color: #ffffff;
   }
-  
+
 
 
   /*---------------------------------------
-     FOOTER              
+     FOOTER
   -----------------------------------------*/
 
   footer {
@@ -654,7 +654,7 @@ http://www.tooplate.com/view/2106-soft-landing
 
 
   /*---------------------------------------
-     SOCIAL ICON              
+     SOCIAL ICON
   -----------------------------------------*/
 
   .social-icon {
@@ -689,7 +689,7 @@ http://www.tooplate.com/view/2106-soft-landing
 
 
   /*---------------------------------------
-     RESPONSIVE STYLES              
+     RESPONSIVE STYLES
   -----------------------------------------*/
 
   @media only screen and (max-width: 1200px) {
