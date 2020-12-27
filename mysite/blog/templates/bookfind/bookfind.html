@@ -2,29 +2,26 @@
 {% block content %}
 
 <body>
-  <h1>검색</h1>
-    <input type = "search" name = "find" id = "search_input">
-    <button type = "submit" id = "search_button">검색</button>
-  <p id="show"></p>
-
-  <div>
-  {% for item in items %}
-      <ul>
-          <div>{{ forloop.counter }}
-            <img src="{{item.image}}" alt="" width="110" height="150"><br>
-            제목 : {{ item.title|safe }} <br>
-            글쓴이 : {{ item.author }} <br>
-            출판사 : {{ item.publisher }} <br>
-            ISBN : {{ item.isbn }}
-          </div>
-      </ul>
-  {% endfor %}
-  </div>
-
-</body>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-</script>
+    <h1>검색</h1>
+      <form action="{% url 'api_search' %}" method="GET">
+          <input type="text" name="find" placeholder="검색">
+          <input type="submit" value="검색">
+      </form>
+      <div>
+      {% for item in items %}
+          <ul>
+              <div>{{ forloop.counter }}
+                <br>
+                <img src="{{item.image}}" alt="" width="110" height="150">
+                <h3>제목 : {{ item.title|safe }}<br>
+                글쓴이 : {{ item.author|safe }}<br>
+                출판사 : {{ item.publisher|safe }}<br>
+                ISBN : {{ item.isbn|safe }}</h3>
+                <a class="btn btn-default" href="{% url 'post_new' %}">리뷰 남기기</a>
+              </div>
+          </ul>
+      {% endfor %}
+      </div>
+  </body>
 
 {% endblock %}
