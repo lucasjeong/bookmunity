@@ -42,10 +42,10 @@
                <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                          <li><a href="{% url 'post_list' %}" class="smoothScroll">글</a></li>
-                         <li><a href="{% url 'api_search' %}" class="smoothScroll">책 검색</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
 											{% if user.is_authenticated %}
+												 <li><a href="{% url 'api_search' %}" class="smoothScroll">책 검색</a></li>
 												 <li><a href="{% url 'post_new' %}" class="smoothScroll">새 글</a></li>
 												 <li><a href="{% url 'logout' %}" class="smoothScroll">로그아웃</a></li>
 												 <li><a>{{ user.username }}님</a></li>

@@ -7,6 +7,9 @@ from django.core.urlresolvers import reverse
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length = 200)
+    bookimage = models.ImageField(upload_to='images', blank=True)
+    bookname = models.CharField(max_length = 200)
+    bookauthor = models.CharField(max_length = 200)
     text = models.TextField()
     published_date = models.DateTimeField(default = timezone.now())
 
