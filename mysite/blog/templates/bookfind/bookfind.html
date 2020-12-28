@@ -2,27 +2,49 @@
 {% block content %}
 
 <body>
-    <h1>검색</h1>
-      <form action="{% url 'api_search' %}" method="GET">
-          <input type="text" name="find" placeholder="검색">
-          <input type="submit" value="검색">
-      </form>
-      <div>
-      {% for item in items %}
-          <hr>
-          <ul>
-              <div id="book{{ forloop.counter }}">
-                <h1>{{ forloop.counter }}</h1>
-                <img src="{{item.image}}" alt="" width="110" height="150">
-                <h3>제목 : {{ item.title|safe }}<br>
-                글쓴이 : {{ item.author|safe }}<br>
-                출판사 : {{ item.publisher|safe }}<br>
-                ISBN : {{ item.isbn|safe }}</h3>
-                <a class="btn btn-default" href="{% url 'post_new' %}">리뷰 남기기</a>
-              </div>
-          </ul>
-      {% endfor %}
+
+  <div class="limiter">
+    <div class="container-table100">
+      <div class="wrap-table100">
+        <div class="table100">
+          <table>
+            <thead>
+              <tr class="table100-head">
+                <th class="column1">표지</th>
+                <th class="column2">제목</th>
+                <th class="column3">글쓴이</th>
+                <th class="column4">출판사</th>
+                <th class="column5">ISBN</th>
+                <th class="column6">리뷰 남기기</th>
+              </tr>
+            </thead>
+            {% for item in items %}
+            <tbody>
+                <tr>
+                  <td class="column1"><img src="{{item.image}}" alt="" width="110" height="150"></td>
+                  <td class="column2">{{ item.title|safe }}</td>
+                  <td class="column3">{{ item.author }}</td>
+                  <td class="column4">{{ item.publisher }}</td>
+                  <td class="column5">{{ item.isbn }}</td>
+                  <td class="column6"><a class="btn btn-default" href="{% url 'post_new' %}">리뷰 남기기</a></td>
+                </tr>
+            </tbody>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
       </div>
   </body>
+
+  <script type="text/javascript">
+    document.getElementById('submit').onclick = function() {
+      localStorage.setItem('bookauthor', '{{ item.author }}');
+      localStorage.setItem('bookname', '{{ item.title }}');
+    };
+  </script>
 
 {% endblock %}
