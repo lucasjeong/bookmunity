@@ -9,9 +9,10 @@
       </form>
       <div>
       {% for item in items %}
+          <hr>
           <ul>
-              <div>{{ forloop.counter }}
-                <br>
+              <div id="book{{ forloop.counter }}">
+                <h1>{{ forloop.counter }}</h1>
                 <img src="{{item.image}}" alt="" width="110" height="150">
                 <h3>제목 : {{ item.title|safe }}<br>
                 글쓴이 : {{ item.author|safe }}<br>
