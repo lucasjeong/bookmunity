@@ -5,9 +5,8 @@ from django.core.urlresolvers import reverse
 # Create your models here.
 
 class Post(models.Model):
-    author = models.ForeignKey('auth.User')
+    author = models.CharField(max_length = 200)
     title = models.CharField(max_length = 200)
-    bookimage = models.ImageField(upload_to='images', blank=True)
     bookname = models.CharField(max_length = 200)
     bookauthor = models.CharField(max_length = 200)
     text = models.TextField()

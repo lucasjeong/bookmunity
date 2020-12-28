@@ -12,7 +12,6 @@ import urllib.request
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
-
 from django.utils.encoding import python_2_unicode_compatible
 from django.contrib.auth.forms import UserCreationForm
 

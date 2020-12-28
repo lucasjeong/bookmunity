@@ -4,7 +4,6 @@
   {% for post in post_list %}
   <div class="post">
     <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.bookname }} 리뷰 - {{ post.title }}</a></h1>
-    <div>{{ post.bookimage }}</div>
     <div class="date">
       <p>등록일: {{ post.published_date|date:"Y-m-d" }}</p>
       <p>작성자: {{ post.author }}
