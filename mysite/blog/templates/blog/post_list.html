@@ -13,3 +13,35 @@
   {% endfor %}
 </div>
 {% endblock %}
+
+<!--
+<div class="limiter">
+  <div class="container-table100">
+    <div class="wrap-table100">
+      <div class="table100">
+        <table>
+          <thead>
+            <tr class="table100-head">
+              <th class="column1">제목</th>
+              <th class="column2">작성자</th>
+              <th class="column3">등록일</th>
+              <th class="column4">댓글</th>
+            </tr>
+          </thead>
+          {% for post in post_list %}
+          <tbody>
+              <tr>
+                <td class="column1"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.bookname }} 리뷰 - {{ post.title }}</a></td>
+                <td class="column2">{{ post.author }}</td>
+                <td class="column3">{{ post.published_date|date:"Y-m-d" }}</td>
+                <td class="column4"><a href="{% url 'post_detail' pk=post.pk %}">💬{{ post.comments.count }}</a></td>
+              </tr>
+          </tbody>
+          {% endfor %}
+          {% endblock %}
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+-->
