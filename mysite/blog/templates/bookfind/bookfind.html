@@ -34,7 +34,7 @@
                   <td class="column3">{{ item.author }}</td>
                   <td class="column4">{{ item.publisher }}</td>
                   <td class="column5">{{ item.isbn }}</td>
-                  <td class="column6"><a class="btn btn-default" href="{% url 'post_new' %}">리뷰 남기기</a></td>
+                  <td class="column6"><a class="btn btn-default" id='submit' href="{% url 'post_new' %}">리뷰 남기기</a></td>
                 </tr>
             </tbody>
             {% endfor %}
@@ -47,10 +47,7 @@
   </body>
 
   <script type="text/javascript">
-    document.getElementById('submit').onclick = function() {
-      localStorage.setItem('bookauthor', '{{ item.author }}');
-      localStorage.setItem('bookname', '{{ item.title }}');
-    };
+
   </script>
 
 {% endblock %}
