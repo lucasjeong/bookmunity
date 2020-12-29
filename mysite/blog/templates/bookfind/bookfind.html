@@ -3,6 +3,14 @@
 
 <body>
 
+  <h1>검색</h1>
+      <form action="{% url 'api_search' %}" method="GET">
+          <input type="text" name="find" placeholder="검색">
+          <input type="submit" value="검색">
+      </form>
+
+<br>
+
   <div class="limiter">
     <div class="container-table100">
       <div class="wrap-table100">
