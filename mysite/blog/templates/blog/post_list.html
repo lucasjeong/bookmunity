@@ -1,6 +1,27 @@
 {% extends "blog/base.html" %}
 {% block content %}
 
+<body>
+  <div class="main-wrapper">
+    <section class="blog-list px-3 py-5 p-md-5">
+      {% for post in post_list %}
+      <div class="container">
+        <div class="item mb-5">
+          <div class="media-body">
+            <h3 class="title mb-1"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.bookname }} 리뷰 - {{ post.title }}</a></h3>
+            <div class="meta mb-1"><span class="date">{{ post.published_date|date:"Y-m-d" }}</span><span class="comment">💬{{ post.comments.count }}</span></div>
+            <div class="intro">{{ post.text }}</div>
+            <a class="more-link" href="blog-post.html">자세히 읽기 &rarr;</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </section>
+  </div>
+</body>
+
+{% endblock %}
+
 <div class="limiter">
   <div class="container-table100">
     <div class="wrap-table100">
@@ -29,5 +50,3 @@
     </div>
   </div>
 </div>
-
-{% endblock %}
