@@ -46,5 +46,17 @@
     <button type="submit" class="btn btn-primary">저장하기</button>
 
   </form>
+
   <script>var editor = new MediumEditor('.editable');</script>
+
+  <script>
+
+    var bookname = localStorage.getItem('bookname');
+    var bookauthor = localStorage.getItem('bookauthor');
+
+    document.getElementById("bookname").value = bookname;
+    document.getElementById("bookauthor").value = bookauthor;
+
+  </script>
+
 {% endblock %}

@@ -30,11 +30,11 @@
             <tbody>
                 <tr>
                   <td class="column1"><img src="{{item.image}}" alt="" width="110" height="150"></td>
-                  <td class="column2">{{ item.title|safe }}</td>
-                  <td class="column3">{{ item.author }}</td>
-                  <td class="column4">{{ item.publisher }}</td>
-                  <td class="column5">{{ item.isbn }}</td>
-                  <td class="column6"><a class="btn btn-default" id='submit' href="{% url 'post_new' %}" onclick="click();">리뷰 남기기</a></td>
+                  <td class="column2" id='title{{ forloop.counter }}'>{{ item.title|safe }}</td>
+                  <td class="column3" id='author{{ forloop.counter }}'>{{ item.author|safe }}</td>
+                  <td class="column4">{{ item.publisher|safe }}</td>
+                  <td class="column5">{{ item.isbn|safe }}</td>
+                  <td class="column6"><a class="btn btn-default" id='submit{{ forloop.counter }}' href="{% url 'post_new' %}">리뷰 남기기</a></td>
                 </tr>
             </tbody>
             {% endfor %}
@@ -47,9 +47,56 @@
   </body>
 
   <script type="text/javascript">
-    function click() {
-      alert("버튼");
+
+    var title = [];
+    var author = [];
+
+    for(var i=1 ; i<11 ; i++) {
+      title[i] = document.getElementById("title"+i).innerText;
+      author[i] = document.getElementById("author"+i).innerText;
     };
+
+    document.getElementById("submit1").onclick = function() {
+      localStorage.setItem('bookauthor', author[1]);
+      localStorage.setItem('bookname', title[1]);
+    };
+    document.getElementById("submit2").onclick = function() {
+      localStorage.setItem('bookauthor', author[2]);
+      localStorage.setItem('bookname', title[2]);
+    };
+    document.getElementById("submit3").onclick = function() {
+      localStorage.setItem('bookauthor', author[3]);
+      localStorage.setItem('bookname', title[3]);
+    };
+    document.getElementById("submit4").onclick = function() {
+      localStorage.setItem('bookauthor', author[4]);
+      localStorage.setItem('bookname', title[4]);
+    };
+    document.getElementById("submit5").onclick = function() {
+      localStorage.setItem('bookauthor', author[5]);
+      localStorage.setItem('bookname', title[5]);
+    };
+    document.getElementById("submit6").onclick = function() {
+      localStorage.setItem('bookauthor', author[6]);
+      localStorage.setItem('bookname', title[6]);
+    };
+    document.getElementById("submit7").onclick = function() {
+      localStorage.setItem('bookauthor', author[7]);
+      localStorage.setItem('bookname', title[7]);
+    };
+    document.getElementById("submit8").onclick = function() {
+      localStorage.setItem('bookauthor', author[8]);
+      localStorage.setItem('bookname', title[8]);
+    };
+    document.getElementById("submit9").onclick = function() {
+      localStorage.setItem('bookauthor', author[9]);
+      localStorage.setItem('bookname', title[9]);
+    };
+    document.getElementById("submit10").onclick = function() {
+      localStorage.setItem('bookauthor', author[10]);
+      localStorage.setItem('bookname', title[10]);
+    };
+
   </script>
 
 {% endblock %}
