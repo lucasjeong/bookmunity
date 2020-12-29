@@ -1,0 +1,101 @@
+{% extends "blog/base.html" %}
+{% block content %}
+
+<body>
+  <br><br><br>
+  <h2>검색</h2>
+      <form action="{% url 'api_search' %}" method="GET">
+          <input type="text" class="form-control" name="find" placeholder="검색">
+      </form>
+
+<br>
+
+  <div class="limiter">
+    <div class="container-table100">
+      <div class="wrap-table100">
+        <div class="table100">
+          <table>
+            <thead>
+              <tr class="table100-head">
+                <th class="column1" style="text-align: center;">표지</th>
+                <th class="column2" style="text-align: center;">제목</th>
+                <th class="column3" style="text-align: center;">글쓴이</th>
+                <th class="column4" style="text-align: center;">출판사</th>
+                <th class="column5" style="text-align: center;">ISBN</th>
+                <th class="column6" style="text-align: center;">리뷰 남기기</th>
+              </tr>
+            </thead>
+            {% for item in items %}
+            <tbody>
+                <tr>
+                  <td class="column1" style="text-align: center;"><img src="{{item.image}}" alt="" width="110" height="150"></td>
+                  <td class="column2" id='title{{ forloop.counter }}' style="text-align: center;">{{ item.title|safe }}</td>
+                  <td class="column3" id='author{{ forloop.counter }}' style="text-align: center;">{{ item.author|safe }}</td>
+                  <td class="column4" style="text-align: center;">{{ item.publisher|safe }}</td>
+                  <td class="column5" style="text-align: center;">{{ item.isbn|safe }}</td>
+                  <td class="column6" style="text-align: center;"><a class="btn btn-default" id='submit{{ forloop.counter }}' href="{% url 'post_new' %}">리뷰 남기기</a></td>
+                </tr>
+            </tbody>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+  <script type="text/javascript">
+
+    var title = [];
+    var author = [];
+
+    for(var i=1 ; i<11 ; i++) {
+      title[i] = document.getElementById("title"+i).innerText;
+      author[i] = document.getElementById("author"+i).innerText;
+    };
+
+    document.getElementById("submit1").onclick = function() {
+      localStorage.setItem('bookauthor', author[1]);
+      localStorage.setItem('bookname', title[1]);
+    };
+    document.getElementById("submit2").onclick = function() {
+      localStorage.setItem('bookauthor', author[2]);
+      localStorage.setItem('bookname', title[2]);
+    };
+    document.getElementById("submit3").onclick = function() {
+      localStorage.setItem('bookauthor', author[3]);
+      localStorage.setItem('bookname', title[3]);
+    };
+    document.getElementById("submit4").onclick = function() {
+      localStorage.setItem('bookauthor', author[4]);
+      localStorage.setItem('bookname', title[4]);
+    };
+    document.getElementById("submit5").onclick = function() {
+      localStorage.setItem('bookauthor', author[5]);
+      localStorage.setItem('bookname', title[5]);
+    };
+    document.getElementById("submit6").onclick = function() {
+      localStorage.setItem('bookauthor', author[6]);
+      localStorage.setItem('bookname', title[6]);
+    };
+    document.getElementById("submit7").onclick = function() {
+      localStorage.setItem('bookauthor', author[7]);
+      localStorage.setItem('bookname', title[7]);
+    };
+    document.getElementById("submit8").onclick = function() {
+      localStorage.setItem('bookauthor', author[8]);
+      localStorage.setItem('bookname', title[8]);
+    };
+    document.getElementById("submit9").onclick = function() {
+      localStorage.setItem('bookauthor', author[9]);
+      localStorage.setItem('bookname', title[9]);
+    };
+    document.getElementById("submit10").onclick = function() {
+      localStorage.setItem('bookauthor', author[10]);
+      localStorage.setItem('bookname', title[10]);
+    };
+
+  </script>
+
+{% endblock %}

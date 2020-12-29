@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+<head>
+		<title>북뮤니티</title>
+		 <meta charset="utf-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="team" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+</head>
+<body>
+     <!-- PRE LOADER -->
+     <section class="preloader">
+          <div class="spinner">
+               <span class="spinner-rotate"></span>
+          </div>
+     </section>
+
+     <!-- MENU -->
+     <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+          <div class="container">
+
+               <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                    </button>
+
+                    <!-- lOGO TEXT HERE -->
+                    <a class="navbar-brand" href="{% url 'post_list' %}">📚북뮤니티</a>
+               </div>
+
+               <!-- MENU LINKS -->
+               <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+											{% if user.is_authenticated %}
+												 <li><a href="{% url 'api_search' %}" class="smoothScroll">책 검색</a></li>
+												 <li><a href="{% url 'logout' %}" class="smoothScroll">로그아웃</a></li>
+												 <li><a>{{ user.username }}님</a></li>
+											{% else %}
+												 <li><a href="{% url 'login' %}" class="smoothScroll">로그인</a></li>
+												 <li><a href="{% url 'create' %}" class="smoothScroll">회원가입</a></li>
+											{% endif %}
+                    </ul>
+               </div>
+
+          </div>
+     </section>
+
+		 <!-- FEATURE -->
+		<section id="home" data-stellar-background-ratio="-0.5">
+					<div class="overlay"></div>
+					<div class="container">
+										<div class="col-md-offset-3 col-md-6 col-sm-12">
+															<h3 style="color: white;">한 권의 책을,</h3>
+															<h1>📚북뮤니티</h1>
+										</div>
+					</div>
+		 </section>
+
+		 <section id="contact" data-stellar-background-ratio="0.5">
+          <div class="container">
+               <div class="row">
+                    <div class="col-md-offset-1 col-md-10 col-sm-12">
+                            <div class="blog_posts">
+                                 {% block content %}
+																 {% endblock %}
+                            </div>
+                    </div>
+               </div>
+          </div>
+     </section>
+
+     <!-- FOOTER -->
+     <footer id="footer" data-stellar-background-ratio="0.5">
+          <div class="container">
+               <div class="row">
+                    <div class="copyright-text col-md-12 col-sm-12">
+                         <div class="col-md-offset-3 col-md-6 col-sm-12">
+                              <br><p>2020 성균관대학교 멋쟁이사자처럼</p>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </footer>
+
+     <!-- SCRIPTS -->
+     <script src="{% static '/js/jquery.js' %}"></script>
+     <script src="{% static '/js/bootstrap.min.js' %}"></script>
+     <script src="{% static '/js/bootstrap.min.js' %}"></script>
+     <script src="{% static '/js/owl.carousel.min.js' %}"></script>
+     <script src="{% static '/js/smoothscroll.js' %}"></script>
+     <script src="{% static '/js/custom.js' %}"></script>
+		 <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+		 <link rel="stylesheet" href="{% static '/css/owl.carousel.css' %}">
+		 <link rel="stylesheet" href="{% static '/css/owl.theme.default.min.css' %}">
+		 <link rel="stylesheet" href="{% static '/css/font-awesome.min.css' %}">
+		 <link rel="stylesheet" href="{% static '/css/tooplate-style.css' %}">
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+
+  <body>
+    <div class="jumbotron">
+      <h2>회원가입</h2>
+      <form method="POST" action=".">
+        {% csrf_token %}
+        {% if form.errors %}
+        <p>오류!</p>
+        {% endif %}
+
+        <p>
+          <label for="id_username">ID: </label>
+          <input autofocus id="id_username" name="username" type="text" required>
+        </p>
+
+        <p>
+          <label for="id_password1">비밀번호: </label>
+          <input id="id_password1" name="password1" type="password" required>
+        </p>
+
+        <p>
+          <label for="id_password2">비밀번호 확인: </label>
+          <input id="id_password2" name="password2" type="password" required>
+        </p>
+
+            <button type="submit" class = "btn btn-primary">회원가입</button>
+      </form>
+    </div>
+  </body>
+{% endblock %}

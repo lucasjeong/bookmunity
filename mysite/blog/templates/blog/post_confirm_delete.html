@@ -1,0 +1,8 @@
+{% extends "blog/base.html" %}
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    <p>정말로 {{ object }}을(를) 삭제하시겠어요?</p>
+    <input type="submit" class='btn btn-danger' value="삭제">
+  </form>
+{% endblock %}
