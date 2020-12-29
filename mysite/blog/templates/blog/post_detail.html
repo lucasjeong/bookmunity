@@ -2,7 +2,7 @@
 {% block content %}
 
   <h1 class="posttitle loader">{{ post.title }}</h1>
-  <h2>{{ post.bookauthor }} - {{ post.bookname }} 리뷰 by {{ post.author }}</h2>
+  <h2>{{ post.bookauthor }} - <a href="/search/?find={{ post.bookname }}">{{ post.bookname }}</a> 리뷰 by {{ post.author }}</h2>
     <div class="date postdate">
       {{ post.published_date }}
     </div>

@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, render_to_response
 from blog.models import Post, Comment
 from blog.forms import PostForm, CommentForm
 from django.urls import reverse_lazy
@@ -7,6 +7,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
+from django.template import RequestContext
 import json
 import urllib.request
 from django.http import JsonResponse
