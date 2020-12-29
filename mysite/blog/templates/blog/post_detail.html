@@ -1,37 +1,64 @@
 {% extends "blog/base.html" %}
 {% block content %}
 
-  <h1 class="posttitle loader">{{ post.title }}</h1>
-  <h2>{{ post.bookauthor }} - <a href="/search/?find={{ post.bookname }}">{{ post.bookname }}</a> 리뷰 by {{ post.author }}</h2>
-    <div class="date postdate">
-      {{ post.published_date }}
+<div class="limiter">
+  <div class="container-table100">
+    <div class="wrap-table100">
+      <div class="table100">
+
+        <!-- 제목 -->
+        <table>
+          <thead>
+            <tr class="table100-head">
+              <th class="column1">{{ post.title }}</th>
+              {% if user.is_authenticated %}
+              <th class="column2"><a class="btn btn-primary" href="{% url 'post_edit' pk=post.pk %}">수정</a><a class='btn btn-primary' href="{% url 'post_remove' pk=post.pk %}">삭제</a></th>
+              {% endif %}
+            </tr>
+          </thead>
+        </table>
+
+        <!-- 내용 -->
+        <h2>{{ post.bookauthor }} - {{ post.bookname }} 리뷰 by {{ post.author }}</h2>
+        <div class="date postdate">
+          {{ post.published_date }}
+        </div>
+
+        <p class='postcontent'>{{ post.text|safe|linebreaksbr }}</p>
+
+      </div>
     </div>
-
-  <p class='postcontent'>{{ post.text|safe|linebreaksbr }}</p>
-
-  {% if user.is_authenticated %}
-    <a class="btn btn-primary" href="{% url 'post_edit' pk=post.pk %}">수정</a>
-    <a class='btn btn-primary' href="{% url 'post_remove' pk=post.pk %}">삭제</a>
-  {% endif %}
+  </div>
+</div>
 
   <hr>
+  <br><br>
 
   <a class='btn btn-primary btn-comment' href="{% url 'add_comment_to_post' pk=post.pk %}">댓글 작성</a>
 
-  <div class="container">
-    {% for comment in post.comments.all %}
-    <br>
-      {% if user.is_authenticated %}
-        {{ comment.published_date }}
-          <a class='btn btn-primary' href="{% url 'comment_remove' pk=comment.pk %}">
-            삭제
-          </a>
-          <p>{{ comment.text|safe|linebreaks }}</p>
-          <p>작성자: {{ comment.author }}</p>
-      {% endif %}
-      {% empty %}
-      <p>댓글없음</p>
-    {% endfor %}
+  <div class="limiter">
+    <div class="container-table100">
+      <div class="wrap-table100">
+        <div class="table100">
+          <table>
+            {% for comment in post.comments.all %}
+            {% if user.is_authenticated %}
+            <tbody>
+                <tr>
+                  <td class="column1">{{ comment.author }}: {{ comment.text|safe|linebreaks }}</td>
+                  <td class="column2">{{ comment.published_date }}</td>
+                  <td class="column3"><a class='btn btn-primary' href="{% url 'comment_remove' pk=comment.pk %}">삭제</a></td>
+                </tr>
+            </tbody>
+            {% endif %}
+            {% empty %}
+            <p>댓글없음</p>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 {% endblock %}

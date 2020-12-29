@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+<head>
+    <title>북뮤니티</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog Template">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+    <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
+    <link id="theme-style" rel="stylesheet" href="{% static '/css/theme.css' %}">
+</head>
+
+<body>
+
+    <header class="header text-center">
+	    <h1 class="blog-name pt-lg-4 mb-0"><a href="{% url 'post_list' %}">📚북뮤니티</a></h1>
+	    <nav class="navbar navbar-expand-lg navbar-dark" >
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div id="navigation" class="collapse navbar-collapse flex-column" >
+				<div class="profile-section pt-3 pt-lg-0">
+					<div class="bio mb-3">한 권의 책을,<br>북뮤니티</div>
+			        <hr>
+				</div>
+				<ul class="navbar-nav flex-column text-left">
+          {% if user.is_authenticated %}
+					<li class="nav-item">
+					    <a class="nav-link" href="{% url 'api_search' %}">책 검색</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="{% url 'logout' %}">로그아웃</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link">{{ user.username }}님</a>
+					</li>
+          {% else %}
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">로그인</a>
+          </li>
+          <li class="nav-item">
+					    <a class="nav-link" href="{% url 'create' %}">회원가입</a>
+					</li>
+          {% endif %}
+				</ul>
+			</div>
+		</nav>
+    </header>
+
+    <div class="main-wrapper">
+
+	    <article class="about-section py-5">
+		    <div class="container">
+			    <h2 class="title mb-3">About Me</h2>
+
+			    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. </p>
+			    <figure><img class="img-fluid" src="assets/images/about-me.jpg" alt="image"></figure>
+			    <h5 class="mt-5">About The Blog</h5>
+			    <p>Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus.</p>
+			    <h5 class="mt-5">My Skills and Experiences</h5>
+			    <p>Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.</p>
+			    <h5 class="mt-5">Side Projects</h5>
+			    <p>Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.</p>
+
+			    <figure><a href="https://made4dev.com"><img class="img-fluid" src="assets/images/promo-banner.jpg" alt="image"></a></figure>
+		    </div>
+	    </article><!--//about-section-->
+
+	    <section class="cta-section theme-bg-light py-5">
+		    <div class="container text-center">
+			    <h2 class="heading">Newsletter</h2>
+			    <div class="intro">Welcome to my blog. Subscribe and get my latest blog post in your inbox.</div>
+			    <form class="signup-form form-inline justify-content-center pt-3">
+                    <div class="form-group">
+                        <label class="sr-only" for="semail">Your email</label>
+                        <input type="email" id="semail" name="semail1" class="form-control mr-md-1 semail" placeholder="Enter email">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+		    </div><!--//container-->
+	    </section>
+
+	    <footer class="footer text-center py-2 theme-bg-dark">
+
+	        <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+            <small class="copyright">2020 성균관대학교 멋쟁이사자처럼</small>
+	    </footer>
+    </div><!--//main-wrapper-->
+
+    <!-- Javascript -->
+    <script src="assets/plugins/jquery-3.3.1.min.js"></script>
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
+    <script src="assets/js/demo/style-switcher.js"></script>
+
+
+</body>
+</html>

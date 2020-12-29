@@ -1,20 +1,6 @@
 {% extends "blog/base.html" %}
 {% block content %}
-<div class="centerstage">
-  {% for post in post_list %}
-  <div class="post">
-    <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.bookname }} 리뷰 - {{ post.title }}</a></h1>
-    <div class="date">
-      <p>등록일: {{ post.published_date|date:"Y-m-d" }}</p>
-      <p>작성자: {{ post.author }}
-    </div>
-    <a href="{% url 'post_detail' pk=post.pk %}">댓글: {{ post.comments.count }}</a>
-  </div>
-  {% endfor %}
-</div>
-{% endblock %}
 
-<!--
 <div class="limiter">
   <div class="container-table100">
     <div class="wrap-table100">
@@ -38,10 +24,10 @@
               </tr>
           </tbody>
           {% endfor %}
-          {% endblock %}
         </table>
       </div>
     </div>
   </div>
 </div>
--->
+
+{% endblock %}
